@@ -1,7 +1,7 @@
 ##Test
 
 import streamlit as st
-from utils import app
+from utils import test_app
 import pandas as pd
 
 st.title('MLS Player Report Maker 1.0')
@@ -65,5 +65,5 @@ if text_input_player:
 
 	if text_input_team:
 		with st.spinner('Processing...'):
-			result = app.test()
+			result = test_app.test()
 			st.write(result)
