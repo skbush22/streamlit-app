@@ -49,7 +49,7 @@ from tqdm import tqdm
 
 import streamlit as st
 
-headers = st.secrets['headers']
+headers = st.secrets.headers
 
 ref_events = pd.read_excel('Opta_dict.xlsx', sheet_name='Event_Type')
 
@@ -106,8 +106,8 @@ def get_asa_data(league):
 
 
 def get_sched_MLS(headers):
-    headers['referer'] = st.secrets['mls']['referer']
-    headers['origin'] = st.secrets['mls']['origin']
+    headers['referer'] = st.secrets.mls.referer
+    headers['origin'] = st.secrets.mls.origin
     
     sched_next = requests.get(f'{st.secrets.mls.next_url}', 
                               headers=headers)
@@ -179,10 +179,10 @@ def get_sched_MLS(headers):
     return (played)
 
 def get_sched_NWSL(headers):
-    headers['referer'] = st.secrets['nwsl']['referer']
-    headers['origin'] = st.secrets['nwsl']['origin']
+    headers['referer'] = st.secrets.nwsl.referer
+    headers['origin'] = st.secrets.nwsl.origin
 
-    full_sched = requests.get(st.secrets['nwsl']['sched_url'], 
+    full_sched = requests.get(st.secrets.nwsl.sched_url, 
                               headers=headers)
     sched_json = json.loads(full_sched.text)
     matches = []
@@ -238,11 +238,11 @@ def get_sched_NWSL(headers):
 
 def get_game_info(match_id, headers):
 
-    headers['referer'] = st.secrets['referer_general']
-    headers['origin'] = st.secrets['origin_general']
+    headers['referer'] = st.secrets.referer_general
+    headers['origin'] = st.secrets.origin_general
     
     response = requests.get(
-    f'{st.secrets['url_general']}{match_id}?_rt=c&_lcl=en&_fmt=jsonp&_clbk=W30000000000000000000000000000000000000000', 
+    f'{st.secrets.url_general}{match_id}?_rt=c&_lcl=en&_fmt=jsonp&_clbk=W30000000000000000000000000000000000000000', 
     headers=headers)
     
     events = response.text
