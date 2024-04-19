@@ -41,6 +41,16 @@ headers = {
     'user-agent': st.secrets.headers['user_agent'],
 }
 
+def test(headers):
+    headers['referer'] = st.secrets.mls.referer
+    headers['origin'] = st.secrets.mls.origin
+
+    return headers
+
+def executeTest():
+    test(headers)
+    return headers
+
 ref_events = pd.read_excel('Opta_dict.xlsx', sheet_name='Event_Type')
 
 ref_quals = pd.read_excel('Opta_dict.xlsx', sheet_name='Qualifier_Type')
