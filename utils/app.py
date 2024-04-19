@@ -14,8 +14,6 @@ import matplotlib.image as image1
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 from PIL import Image
 from matplotlib.colors import LinearSegmentedColormap
-import warnings
-warnings.filterwarnings('ignore')
 from unidecode import unidecode
 
 from itscalledsoccer.client import AmericanSoccerAnalysis
