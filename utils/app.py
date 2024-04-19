@@ -47,6 +47,8 @@ from plottable.plots import *
 
 from tqdm import tqdm
 
+import streamlit as st
+
 headers = st.secrets['headers']
 
 ref_events = pd.read_excel('Opta_dict.xlsx', sheet_name='Event_Type')
@@ -107,11 +109,11 @@ def get_sched_MLS(headers):
     headers['referer'] = st.secrets['mls']['referer']
     headers['origin'] = st.secrets['mls']['origin']
     
-    sched_next = requests.get(f'{st.secrets['mls']['next_url']}', 
+    sched_next = requests.get(f'{st.secrets.mls.next_url}', 
                               headers=headers)
     
     sched_played = requests.get(
-    f'{st.secrets['mls']['played_url']}', 
+    f'{st.secrets.mls.played_url}', 
     headers=headers)
     
     sched = sched_next.text
