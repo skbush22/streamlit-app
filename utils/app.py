@@ -25,7 +25,22 @@ from plottable.plots import *
 
 import streamlit as st
 
-headers = st.secrets.headers
+headers = {
+    'authority': st.secrets.headers.authority
+    'accept': st.secrets.headers.accept,
+    'accept-language': st.secrets.headers['accept-language'],
+    'cache-control': st.secrets.headers['cache-control'],
+    'if-none-match': st.secrets.headers['if-none-match'],
+    'origin': st.secrets.headers['origin'],
+    'referer': st.secrets.headers.referer,
+    'sec-ch-ua': st.secrets.headers['sec-ch-ua'],
+    'sec-ch-ua-mobile': st.secrets.headers['sec-ch-ua-mobile'],
+    'sec-ch-ua-platform': st.secrets.headers['sec-ch-ua-platform'],
+    'sec-fetch-dest': st.secrets.headers['sec-fetch-dest'],
+    'sec-fetch-mode': st.secrets.headers['sec-ch-ua-mode'],
+    'sec-fetch-site': st.secrets.headers['sec-fetch-site'],
+    'user-agent': st.secrets.headers['user-agent'],
+}
 
 ref_events = pd.read_excel('Opta_dict.xlsx', sheet_name='Event_Type')
 
