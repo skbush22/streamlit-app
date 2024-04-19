@@ -3,49 +3,27 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 import requests
-import os
 import warnings
-import time
 pd.options.mode.chained_assignment = None
 import json
 from bs4 import BeautifulSoup as soup
-import re 
-from collections import OrderedDict
-import datetime
-from datetime import datetime as dt
-import itertools
-try:
-    from tqdm import trange
-except ModuleNotFoundError:
-    pass
+import re
 from matplotlib.colors import to_rgba
 from mplsoccer import Pitch, FontManager, Sbopen, VerticalPitch, PyPizza
 import matplotlib.image as image1
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 from PIL import Image
-import matplotlib.patheffects as path_effects
 from matplotlib.colors import LinearSegmentedColormap
-from scipy.ndimage import gaussian_filter
-import tweepy
 import warnings
 warnings.filterwarnings('ignore')
-from io import BytesIO
 from unidecode import unidecode
-
 
 from itscalledsoccer.client import AmericanSoccerAnalysis
 
-
 from plottable import Table
-from scipy import stats
-from pathlib import Path
 from plottable import ColumnDefinition, Table
 from plottable.cmap import normed_cmap
-from plottable.formatters import decimal_to_percent
 from plottable.plots import *
-
-
-from tqdm import tqdm
 
 import streamlit as st
 
@@ -444,7 +422,7 @@ def pick_a_player(player, team, league):
             games_p.append(games[i])
             
     player_stats = pd.DataFrame()
-    for i in tqdm(range(len(games_p))):
+    for i in range(len(games_p)):
         events, dict_ = get_game_info(games_p[i]['id'], headers)
         for i in events.index:
             try:
