@@ -62,9 +62,8 @@ if text_input_player:
 		)
 
 	if text_input_team:
-		try:
-			with st.spinner('Processing...'):
-				result = app.run_player_graphic(text_input_player, text_input_team, 'MLS')
-				st.pyplot(fig=result)
-		except ValueError:
-			st.write('Sorry. Your request could not be processed.\nPlease check that all player and team selections are correct.\nIf so, and request is still not processing, contact me on X.')
+		with st.spinner('Processing...'):
+			result = app.run_player_graphic(text_input_player, text_input_team, 'MLS')
+			st.pyplot(fig=result)
+		#except ValueError:
+			#st.write('Sorry. Your request could not be processed.\nPlease check that all player and team selections are correct.\nIf so, and request is still not processing, contact me on X.')
