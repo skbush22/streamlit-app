@@ -33,13 +33,7 @@ from io import BytesIO
 from unidecode import unidecode
 
 
-# In[2]:
-
-
 from itscalledsoccer.client import AmericanSoccerAnalysis
-
-
-# In[3]:
 
 
 from plottable import Table
@@ -51,27 +45,9 @@ from plottable.formatters import decimal_to_percent
 from plottable.plots import *
 
 
-# In[4]:
-
-
 from tqdm import tqdm
 
-headers = {
-    'authority': 'api.performfeeds.com',
-    'accept': '*/*',
-    'accept-language': 'en-US,en;q=0.9',
-    'cache-control': 'max-age=60',
-    'if-none-match': 'W/"725995d15d"',
-    'origin': 'https://theanalyst.com',
-    'referer': 'https://theanalyst.com',
-    'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"macOS"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-}
+headers = st.secrets['headers']
 
 ref_events = pd.read_excel('Opta_dict.xlsx', sheet_name='Event_Type')
 
@@ -128,14 +104,14 @@ def get_asa_data(league):
 
 
 def get_sched_MLS(headers):
-    headers['referer'] = 'https://optaplayerstats.statsperform.com/en_GB/soccer'
-    headers['origin'] = 'https://optaplayerstats.statsperform.com/en_GB/soccer'
+    headers['referer'] = st.secrets['mls']['referer']
+    headers['origin'] = st.secrets['mls']['origin']
     
-    sched_next = requests.get(f'https://api.performfeeds.com/soccerdata/match/qxcx5jmswgto1qeqcjzghtddt/?_rt=c&tmcl=929cd2ue4bpcebvx91rx9e3h0&live=yes&_pgSz=400&_lcl=en&_fmt=jsonp&_clbk=W3e0426302c570d98d0d4d82d3a8c4300301fc6ae9', 
+    sched_next = requests.get(f'{st.secrets['mls']['next_url']}', 
                               headers=headers)
     
     sched_played = requests.get(
-    f'https://api.performfeeds.com/soccerdata/match/qxcx5jmswgto1qeqcjzghtddt/?_rt=c&tmcl=929cd2ue4bpcebvx91rx9e3h0&live=yes&_pgSz=400&_pgNm=2&_lcl=en&_fmt=jsonp&_clbk=W32b7874e6f7b21140cce4e44b90e48dcf2e8bf48b', 
+    f'{st.secrets['mls']['played_url']}', 
     headers=headers)
     
     sched = sched_next.text
@@ -201,10 +177,10 @@ def get_sched_MLS(headers):
     return (played)
 
 def get_sched_NWSL(headers):
-    headers['referer'] = 'https://www.nwslsoccer.com/'
-    headers['origin'] = 'https://www.nwslsoccer.com/'
+    headers['referer'] = st.secrets['nwsl']['referer']
+    headers['origin'] = st.secrets['nwsl']['origin']
 
-    full_sched = requests.get('https://d2nkt8hgeld8zj.cloudfront.net/services/nwsl.ashx/schedule?season', 
+    full_sched = requests.get(st.secrets['nwsl']['sched_url'], 
                               headers=headers)
     sched_json = json.loads(full_sched.text)
     matches = []
@@ -259,11 +235,12 @@ def get_sched_NWSL(headers):
     return (played)
 
 def get_game_info(match_id, headers):
-    headers['referer'] = 'https://theanalyst.com'
-    headers['origin'] = 'https://theanalyst.com'
+
+    headers['referer'] = st.secrets['referer_general']
+    headers['origin'] = st.secrets['origin_general']
     
     response = requests.get(
-    f'https://api.performfeeds.com/soccerdata/matchevent/1mjq6w6ezkxe611ykkj8rgz7f1/{match_id}?_rt=c&_lcl=en&_fmt=jsonp&_clbk=W30000000000000000000000000000000000000000', 
+    f'{st.secrets['url_general']}{match_id}?_rt=c&_lcl=en&_fmt=jsonp&_clbk=W30000000000000000000000000000000000000000', 
     headers=headers)
     
     events = response.text
