@@ -36,7 +36,7 @@ headers = {
     'sec-ch-ua-mobile': st.secrets.headers['sec-ch-ua-mobile'],
     'sec-ch-ua-platform': st.secrets.headers['sec-ch-ua-platform'],
     'sec-fetch-dest': st.secrets.headers['sec-fetch-dest'],
-    'sec-fetch-mode': st.secrets.headers['sec-ch-ua-mode'],
+    'sec-fetch-mode': st.secrets.headers['sec-fetch-mode'],
     'sec-fetch-site': st.secrets.headers['sec-fetch-site'],
     'user-agent': st.secrets.headers['user-agent'],
 }
