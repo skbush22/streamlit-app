@@ -55,7 +55,7 @@ def test():
     
     sched = sched_next.text
 
-    return sched
+    return [st.secrets.mls.next_url, st.secrets.mls.referer]
 
 def executeTest():
     sched_2 = test()
