@@ -433,7 +433,10 @@ def pick_a_player(player, team, league):
     else:
         games = get_sched_NWSL(headers)
 
-    shortened_name = f"{player[0]}. {player.split(' ')[1]}"
+    try:
+        shortened_name = f"{player[0]}. {player.split(' ')[1]}"
+    except:
+        shortened_name = player
     
     games_p = []
     for i in range(len(games)):
