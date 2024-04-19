@@ -57,8 +57,8 @@ def test(headers):
     return headers
 
 def executeTest():
-    headers = test(headers)
-    return headers
+    headers_2 = test(headers)
+    return headers_2
 
 ref_events = pd.read_excel('Opta_dict.xlsx', sheet_name='Event_Type')
 
