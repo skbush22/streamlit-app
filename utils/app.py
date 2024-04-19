@@ -46,7 +46,8 @@ def test():
     #headers['origin'] = st.secrets.mls.origin
 
     sched_next = requests.get(st.secrets.mls.next_url, 
-                              headers={'referer': st.secrets.mls.referer, 'origin':st.secrets.mls.origin})
+                              headers={'referer': st.secrets.mls.referer, 'origin':st.secrets.mls.origin,
+                              'user-agent': 'Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US);'})
     
     #sched_played = requests.get(
     #st.secrets.mls.played_url, 
