@@ -38,7 +38,7 @@ headers = {
     'sec-fetch-dest': st.secrets.headers['sec-fetch-dest'],
     'sec-fetch-mode': st.secrets.headers['sec-fetch-mode'],
     'sec-fetch-site': st.secrets.headers['sec-fetch-site'],
-    'user-agent': st.secrets.headers['user-agent'],
+    'user-agent': st.secrets.headers['user_agent'],
 }
 
 ref_events = pd.read_excel('Opta_dict.xlsx', sheet_name='Event_Type')
