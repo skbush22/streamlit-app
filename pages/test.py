@@ -66,4 +66,4 @@ if text_input_player:
 	if text_input_team:
 		with st.spinner('Processing...'):
 			result = app.executeTest()
-			print(result)
+			st.write(result)
