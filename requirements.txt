@@ -3,7 +3,7 @@ seaborn
 requests
 bs4
 mplsoccer
-PIL
+pillow
 unidecode
 itscalledsoccer
 plottable
