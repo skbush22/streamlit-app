@@ -3,7 +3,6 @@ matplotlib
 numpy
 seaborn
 requests
-json
 bs4
 re
 mplsoccer
