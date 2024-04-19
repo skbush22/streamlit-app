@@ -45,10 +45,19 @@ def test(headers):
     headers['referer'] = st.secrets.mls.referer
     headers['origin'] = st.secrets.mls.origin
 
+    #sched_next = requests.get(f'{st.secrets.mls.next_url}', 
+                              #headers=headers)
+    
+    #sched_played = requests.get(
+    #f'{st.secrets.mls.played_url}', 
+    #headers=headers)
+    
+    #sched = sched_next.text
+
     return headers
 
 def executeTest():
-    test(headers)
+    headers = test(headers)
     return headers
 
 ref_events = pd.read_excel('Opta_dict.xlsx', sheet_name='Event_Type')
