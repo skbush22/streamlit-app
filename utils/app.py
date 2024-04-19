@@ -45,11 +45,11 @@ def test(headers):
     headers['referer'] = st.secrets.mls.referer
     headers['origin'] = st.secrets.mls.origin
 
-    sched_next = requests.get(f'{st.secrets.mls.next_url}', 
+    sched_next = requests.get(st.secrets.mls.next_url, 
                               headers=headers)
     
     sched_played = requests.get(
-    f'{st.secrets.mls.played_url}', 
+    st.secrets.mls.played_url, 
     headers=headers)
     
     sched = sched_next.text
