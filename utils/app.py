@@ -41,9 +41,9 @@ headers = {
     'user-agent': st.secrets.headers['user_agent'],
 }
 
-def test(headers):
-    headers['referer'] = st.secrets.mls.referer
-    headers['origin'] = st.secrets.mls.origin
+def test():
+    #headers['referer'] = st.secrets.mls.referer
+    #headers['origin'] = st.secrets.mls.origin
 
     sched_next = requests.get(st.secrets.mls.next_url, 
                               headers={'referer': st.secrets.mls.referer, 'origin':st.secrets.mls.origin})
@@ -57,7 +57,7 @@ def test(headers):
     return sched
 
 def executeTest():
-    sched_2 = test(headers)
+    sched_2 = test()
     return sched_2
 
 ref_events = pd.read_excel('Opta_dict.xlsx', sheet_name='Event_Type')
