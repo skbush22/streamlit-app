@@ -33,7 +33,6 @@ headers = {
     'if-none-match': st.secrets.headers['if-none-match'],
     'origin': st.secrets.headers['origin'],
     'referer': st.secrets.headers.referer,
-    'sec-ch-ua': st.secrets.headers['sec-ch-ua'],
     'sec-ch-ua-mobile': st.secrets.headers['sec-ch-ua-mobile'],
     'sec-ch-ua-platform': st.secrets.headers['sec-ch-ua-platform'],
     'sec-fetch-dest': st.secrets.headers['sec-fetch-dest'],
