@@ -15,6 +15,7 @@ from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 from PIL import Image
 from matplotlib.colors import LinearSegmentedColormap
 from unidecode import unidecode
+import time
 
 from itscalledsoccer.client import AmericanSoccerAnalysis
 
