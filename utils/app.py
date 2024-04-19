@@ -26,7 +26,7 @@ from plottable.plots import *
 import streamlit as st
 
 headers = {
-    'authority': st.secrets.headers.authority
+    'authority': st.secrets.headers.authority,
     'accept': st.secrets.headers.accept,
     'accept-language': st.secrets.headers['accept-language'],
     'cache-control': st.secrets.headers['cache-control'],
