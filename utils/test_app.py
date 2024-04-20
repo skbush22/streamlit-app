@@ -12,7 +12,9 @@ def test():
     'performfeeds-node-id': 'soccer-fe-5fc9859b8-tzsq7',
     "if-none-match":"W/725995d15d",
     'Transfer-Encoding': 'chunked',
-    'content-transfer-encoding': 'base64'})
+    'content-transfer-encoding': 'base64',
+    'Connection': 'keep-alive, Transfer-Encoding'
+    })
   sched = sched_next.headers
   text = sched_next.text[:100]
 
