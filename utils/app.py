@@ -54,7 +54,7 @@ def test():
     #st.secrets.mls.played_url, 
     #headers=headers)
     
-    sched = sched_next.text[:80]
+    sched = sched_next.headers
 
     return sched
 
