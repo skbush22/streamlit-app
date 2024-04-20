@@ -65,5 +65,6 @@ if text_input_player:
 
 	if text_input_team:
 		
-		result = test_app.test()
+		result, result2 = test_app.test()
 		st.write(result)
+		st.write(result2)

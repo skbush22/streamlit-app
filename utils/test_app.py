@@ -11,5 +11,6 @@ def test():
     'x-content-type-options':'nosniff',
     'performfeeds-node-id': 'soccer-fe-5fc9859b8-tzsq7'})
   sched = sched_next.headers
+  text = sched_next.text[:100]
 
-  return sched
+  return sched, text
