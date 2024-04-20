@@ -9,7 +9,10 @@ def test():
     'origin':"https://optaplayerstats.statsperform.com/en_GB/soccer",
     'user-agent': 'Mozilla/5.0 (Windows; U; MSIE 9.0; Windows NT 9.0; en-US);', 
     'x-content-type-options':'nosniff',
-    'performfeeds-node-id': 'soccer-fe-5fc9859b8-tzsq7'})
+    'performfeeds-node-id': 'soccer-fe-5fc9859b8-tzsq7',
+    "if-none-match":"W/725995d15d",
+    'Transfer-Encoding': 'chunked',
+    'content-transfer-encoding': 'base64'})
   sched = sched_next.headers
   text = sched_next.text[:100]
 
