@@ -9,6 +9,6 @@ def test():
     'User-Agent':''
     })
   sched = sched_next.headers
-  text = sched_next.text[:100]
+  text = sched_next.text
 
   return sched, text
